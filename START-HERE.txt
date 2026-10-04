@@ -1,0 +1,30 @@
+ONE HOME / ONE MATHS / ONE READER — 5 October 2026
+
+THREE SITES, ONE SCHOOL DATABASE
+1. Back up your existing repository files and database before installing.
+2. Run the separately supplied PRIVATE OneHome-Trio-Database.sql in the SAME multi-school Supabase project as OneLearn. This contains the schema upgrade, the existing topic bank and the new full novels. Run it once for all three websites. It is repeatable and keeps existing progress, schools and roles. Do not upload this SQL to GitHub: it includes teacher answer keys. A PostgreSQL client can run the file if your dashboard editor rejects a large paste.
+3. Upload the contents of OneHome.zip to your OneHome repository; OneMaths.zip to OneMaths; OneReader.zip to OneReader. Every ZIP has files directly at its root. Keep the old homework files included in OneHome so previous work/results remain accessible.
+4. In EACH config.js set the three app addresses to your real HTTPS URLs, ending in /. The supplied Supabase URL and publishable key are preserved. Never insert a service-role key or OAuth client secret in these files.
+5. Open OneHome/index.html?school=YOUR-SCHOOL-SLUG and sign in using your existing staff email/password. The existing OneLearn school and staff provisioning remains unchanged. Configure the exam board, enabled years and availability. Import classes or refresh ONE EDUCATE. In People & classes, download the email roster template, fill email and provider (azure / google / email) and upload it. Staff assignments and school-scoped server permissions remain enforced.
+
+MICROSOFT / GOOGLE / SCHOOL EMAIL
+These buttons are wired, but external provider setup cannot be completed without your project/provider administration.
+- Supabase Authentication > Providers: enable Google and/or Azure (Microsoft) with credentials from your institution's OAuth app. Secrets go ONLY in Supabase. The provider's callback URL is https://nndjwqjyfgozltdoujiu.supabase.co/auth/v1/callback . Follow https://supabase.com/docs/guides/auth/social-login/auth-google and https://supabase.com/docs/guides/auth/social-login/auth-azure . Microsoft requires the email scope; restrict the Entra app/tenant as appropriate for your schools.
+- Supabase Authentication > URL Configuration: allow each actual site URL ending /index.html (and its school query) as a redirect. Configure the Site URL. PKCE login returns to the same browser that started it.
+- School-email option sends a verification code. Enable email signups/OTP, configure production SMTP, and put {{ .Token }} in the Magic Link email template so students receive a code to enter. Email must match an active roster entry with provider=email. A roster entry alone does not authenticate a student.
+- Same-origin paths (for example account.github.io/OneHome/, /OneMaths/, /OneReader/) share sign-in in the same browser tab via sessionStorage. On different origins students sign in on each site; their school/data/points remain shared. No tokens are put in links. OneEasy's existing same-origin student-code connection is retained.
+- Existing student codes remain available as a fallback. Your existing staff sign-in and roles are retained.
+
+WHAT IS INCLUDED
+- Separate, responsive services with quiet backgrounds, readable text and generous spacing.
+- 105 original maths topics (840 questions), school board selection AQA/Edexcel, homework planner, Y10–11 independent revision, unlimited retries, one award per correct answer, optional restrained celebrations.
+- 18 complete public-domain novels/collections, plus the previous 115 optional short readers and college guides. Full books are the default library view; tick Include short reads to see older material. Book source/author records are in BOOK-SOURCES.txt. No Harry Potter or unlicensed modern titles are included.
+- Two literal text-recall questions per five-page block in full novels; these are automatically constructed passage checks, not a validated comprehension or reading-age test. Existing five-section/50-question classroom check is retained, labelled accordingly. Teachers can record externally assessed reading age.
+- Gothic books need explicit school approval and Y10/11 access. Historical texts may contain dated prejudice or distressing material; teachers can preview every title.
+- Shared separate Power/Star balances, reversible savings deposits, 30 one-time virtual rewards, equipment/theme choices and free pet care. Pet accessories display as named badges, not 30 different animated pet models. Normal hints and feedback never slow down due to pet care. Purchased hints are permanent optional tools, not paid answers.
+- Active study time estimates stop while the tab is hidden, on a reading break or after 60 seconds without interaction; server credit is capped. This is an engagement estimate, not proof of continuous attention. 50 Power Points is an approximate 10-minute planning guide, not a measured guarantee.
+- Admin email roster, existing CSV imports for Arbor/Teams, ONE EDUCATE roster refresh, class-scoped reports, school lockdown and existing role controls.
+
+CHECKS AND LIMITS
+Local database tests and desktop/mobile browser tests were run; see VALIDATION.txt. Live OAuth, SMTP, existing deployment URLs and your live database have not been changed or tested. Arbor/Teams are CSV imports, not live vendor integrations. This update does not make a school platform compliant or production-approved by itself.
+Try each site with ?demo=1 before installation. Demo points/data are separate from school data. New sites open in the same tab to preserve same-origin sign-in.

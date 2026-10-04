@@ -1,0 +1,24 @@
+ONE HOME TRIO — LOCAL VALIDATION, 5 OCTOBER 2026
+
+Passed against a local PostgreSQL-compatible PGlite database using the existing multi-school platform installer:
+- Repeatable schema/content installation and retention of existing school records.
+- Administrator restrictions, teacher class scope, school isolation, private table access restrictions and lockdown.
+- Existing student codes, code rotation, linked ONE EDUCATE roster/portal checks, and no MIS writes during sync.
+- Verified email plus matching identity provider; student accounts cannot obtain staff access.
+- 50-question reading gate; 18 full-length novels; ordered pages and five-page checkpoint gates; answer keys absent from student content responses.
+- Unlimited retries, correct-answer awards once, retained old quiz awards cannot be earned again, and homework release/class restrictions.
+- Savings deposits/withdrawals, overspend rejection, repeated purchase protection, owned reward equipment, free pet care and permission-gated bonus hints.
+- Gothic approval/year gate and server-capped active-time reporting.
+
+Passed in headless Microsoft Edge:
+- Three-service navigation with shared same-origin demonstration state.
+- Admin settings and CSV import, teacher-only navigation, scheduling homework.
+- Savings, purchases, equipment and pet care.
+- Reading check, book display, text controls, checkpoint completion.
+- Incorrect maths answer followed by successful retry.
+- All three home screens at 390px mobile width without horizontal overflow.
+- No JavaScript page errors during these flows.
+
+Packaging: each of the three ZIPs contains files at its root only; no folders or private SQL answer banks. Published demo questions are isolated sample content; the Alice demo is a five-page excerpt, while the private live installer contains the complete novel.
+
+Not performed: live Microsoft/Google sign-in, live email delivery, deployment to GitHub, or changes to live Supabase. Provider credentials, allowed redirect URLs, SMTP and school roster mapping must be configured by the project administrator before student email sign-in is available. The built-in reading check and text-recall checkpoints are not validated reading-age measures. Teacher active time is an estimate.
