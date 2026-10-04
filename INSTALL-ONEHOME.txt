@@ -1,0 +1,106 @@
+ONE HOME — Lavender refresh (style B)
+4 October 2026
+
+WHAT TO DOWNLOAD
+1. OneHome-Style-B-Website-Files-Only.zip — the public website. Every file is at the ZIP root.
+2. OneHome-Database-Installers.zip — two SQL files and these instructions, also at the root.
+   Keep this second download private. Do NOT upload the SQL files to GitHub or a public website: they contain the answer bank.
+
+INSTALLATION
+1. Back up your current OneHome website and database.
+2. In your EXISTING multi-school OneLearn Supabase project, open SQL Editor.
+   Run ONEHOME-REFRESH.sql first. Then run ONEHOME-CONTENT.sql.
+   Use the project already containing ol_schools, ol_members and the existing school schemas.
+   This is NOT the older single-school OneEducation database. The installer checks this.
+3. Extract the WEBSITE ZIP and upload its files directly to the root of your OneHome GitHub repository.
+   Replace the matching website files. Keep your current config.js if you have customised it.
+   The supplied config.js uses your existing nndjwqjyfgozltdoujiu Supabase project and public publishable key.
+   Do NOT use a service-role/secret key. Confirm the other app paths in config.js if your repository names differ.
+4. Open index.html?school=YOUR-SCHOOL-SLUG using your existing school address.
+   Sign in with your existing verified school administrator email and password.
+5. Open School settings. Choose AQA or Edexcel and Years 7–11. Choose StarReader and college-reading preferences.
+6. Open Connections. Use Refresh from ONE EDUCATE, or import a CSV file after reviewing its preview.
+   ONE EDUCATE keeps its own records and codes. This import does not write to the MIS.
+7. In People & classes, review class staff access. Initially a class is shared with all approved school staff.
+   Tick individual staff to restrict it. School administrators always retain access.
+8. Mark setup complete. You can use the existing School setup page to invite staff and change your school identity.
+9. Try a student code, complete the reading check, set a short homework task and confirm access before your wider rollout.
+
+DEMO
+Use index.html?demo=1. Switch between Admin, Teacher and Student at the top.
+The demo stores sample data in sessionStorage in this tab. Its small sample book/question set is different from the live library.
+Use a hosted page or local HTTP server; modules cannot run reliably by opening the HTML as a file:// URL.
+
+WHAT HAS BEEN BUILT
+- Pale lavender interface, responsive navigation, supplied ONE HOME logo and separate SVG image icons.
+- Admin school setup, roster import, class staff access and student code reset for standalone imports.
+- Teacher home opens OneReader or OneMaths; admin settings are absent from teacher navigation.
+- Scheduled homework with start and due times, selected titles/topics and points targets.
+  Release is checked on the server whenever students load the app; no browser tab or scheduled job must remain open.
+- OneReader: mandatory first reading check (5 sections of 10 questions), saved assessment progress,
+  age-group library filters, self-selected books, five-page reading followed by three questions.
+- Text size, page colour, line spacing, optional reading guide, pause/resume and keyboard focus support.
+- Star Points; optional school-wide StarReader doubles awards from 10 to 20 per qualifying book.
+- Year 11 college-transition guides; administrator school-wide switch and class switches for authorised teachers.
+- OneMaths: 105 topic quizzes across Years 7–11, 840 original questions, hints, feedback and server marking.
+- Independent revision is restricted to Years 10–11. Younger years access maths through assigned homework.
+- Power Points: 5 per correct maths answer, awarded once when a quiz is finished.
+- Teacher class reports, last login, reading-check results, school-recorded reading age and CSV downloads.
+- Student/school/class checks are enforced on the server, not only by hiding controls.
+- Existing lockdown support: when ol_locked is installed, OneHome refuses requests during lockdown and checks open tabs every 30 seconds.
+- Previous homework, results and Science content remain in legacy.html, accessible from the navigation footer.
+- Existing OneEasy same-origin handoff remains supported. It is not universal cross-domain SSO.
+
+CONTENT AND ASSESSMENT LIMITS
+The reading library contains 115 ORIGINAL SHORT READERS/GUIDES, not 115 full-length licensed novels.
+105 are structured community-fiction booklets generated from seven narrative patterns across fifteen settings;
+10 are college-transition guides. Each is five short screen pages. The stories share a scaffold.
+This is a starter collection for staff review, not a professionally edited or levelled commercial library.
+Age labels describe suggested content groups. They do not establish a child's measured reading age.
+
+The 50-question assessment measures comprehension of the supplied passages only. Scores give Supported,
+Developing or Confident classroom levels. It is NOT a validated, norm-referenced reading-age test.
+Teachers can separately record a reading age and the name/date of an assessment used by their school.
+
+Maths questions are original practice covering shared AQA/Edexcel topic areas. The school board setting
+labels the chosen route; both currently share this question bank. This is not a complete specification-mapped
+course, an official exam-board product or a replacement for teacher review. Year labels are suggestions.
+
+Reading display controls offer choice; they do not promise to prevent headaches or treat a condition.
+
+CONNECTIONS
+ONE EDUCATE: a school administrator imports/refreshes this school's classes and pupils. Linked student codes
+are checked against the MIS at use, including its portal restrictions. Active membership is refreshed on student access.
+After staff/class changes, refresh the ONE EDUCATE connection so teacher reports also use the latest roster.
+
+Arbor and Microsoft Teams: school-authorised CSV imports, NOT live integrations. Use headers:
+externalId,first,last,year,class
+For Arbor an Arbor Student ID can be used as externalId. For Teams prepare a class roster in this format.
+The same source+externalId matches a pupil on subsequent imports. A repeated row adds a class without deleting old memberships.
+Live Arbor/Teams integration still requires provider setup, school consent and appropriate permissions.
+No access tokens, external accounts or approvals are invented by this update.
+
+POINTS AND HOMEWORK
+Reading: two or more correct check-in answers are needed. A book awards points once per pupil.
+Maths: the first submitted answer is retained; finishing awards points for correct answers once per quiz/context.
+Repeating a completed item cannot repeatedly award points. There is no score leaderboard.
+For reading homework, choose unread books or allow enough alternative titles to make the points goal achievable.
+Only awards made for the selected items within the release/deadline window count towards that homework target.
+Points earned after a deadline still belong to the student but are not counted towards the on-time target.
+Archived tasks retain historic records. Previous OneHome homework is deliberately preserved in the old homework area.
+
+DATA AND DEPLOYMENT
+The update adds oh2_* tables and functions. It does not overwrite school roles, ol_call, legacy homework,
+school data or your live website. The content installer updates only this new bank by stable item ID.
+Neither installer has been run against your live Supabase by the assistant. Nothing has been deployed to GitHub.
+Keep the SQL files private, especially ONEHOME-CONTENT.sql. The public website ZIP excludes both installers.
+
+SOURCE NOTES
+AQA GCSE Mathematics 8300 subject areas:
+https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/specification-at-a-glance
+Pearson Edexcel GCSE Mathematics:
+https://qualifications.pearson.com/en/qualifications/edexcel-gcses/mathematics-2015.html
+Arbor CSV export and identifiers:
+https://support.arbor-education.com/hc/en-us/articles/360018919357-Downloading-files-from-Arbor-and-adding-Unique-Identifiers-to-exports
+Microsoft Graph class permissions:
+https://learn.microsoft.com/en-us/graph/api/educationclass-get?view=graph-rest-1.0
