@@ -25,3 +25,10 @@ Added 7 October 2026:
 Oliver Twist — Charles Dickens (d. 1870); 588 reading pages; https://www.gutenberg.org/ebooks/730
 Jane Eyre — Charlotte Brontë (d. 1855); 645 reading pages; https://www.gutenberg.org/ebooks/1260
 Wuthering Heights — Emily Brontë (d. 1848); 402 reading pages; https://www.gutenberg.org/ebooks/768
+
+Added 7 October 2026 (plain original texts, no illustrations):
+Black Beauty — Anna Sewell (d. 1878); 199 app reading pages; https://www.gutenberg.org/ebooks/271
+The Jungle Book — Rudyard Kipling (d. 1936); 183 app reading pages; https://www.gutenberg.org/ebooks/236
+A Connecticut Yankee in King Arthur’s Court — Mark Twain (d. 1910); 399 app reading pages; https://www.gutenberg.org/ebooks/86
+The Wind in the Willows — Kenneth Grahame (d. 1932); 203 app reading pages; https://www.gutenberg.org/ebooks/27805
+A Little Princess — Frances Hodgson Burnett (d. 1924); 246 app reading pages; https://www.gutenberg.org/ebooks/146

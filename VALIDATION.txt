@@ -1,6 +1,0 @@
-LOCAL VALIDATION — 7 October 2026
-PGlite database tests: compact installer and repeat installation; school boundaries and role restrictions; reading gate; charged and idempotent food/water; buddy naming and outfits; school disable switch; reading hints; annual review and one-time rewards; private school book upload; lockdown.
-Edge browser tests: all three sites, admin settings/import, teacher navigation restrictions, planner, savings/shop/equipment, renaming and visible outfit layers, five-section reading check, book checkpoints, annual review, maths retry and success, mobile overflow checks. No browser JavaScript errors in these workflows.
-Content checks: 21 full-length books; 50 distinct initial check questions across five passages of at least 350 words; public assets omit correct-answer fields.
-External Microsoft/Google login credentials, email delivery, live Supabase and deployment were not exercised. Nothing was deployed or changed in live school data.
-The classroom reading check is not a validated or standardised reading-age assessment. Book pages are app reading chunks, not printed-edition pagination.

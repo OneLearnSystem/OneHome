@@ -1,31 +1,16 @@
-ONE HOME · ONE MATHS · ONE READER — 7 OCTOBER 2026
+ONEHOME UPDATE — 7 October 2026
 
-ONE SMALL SQL FILE
-Upload all files from the three matching website ZIPs to their respective repositories, then run ONEHOME-SMALL-INSTALL.sql once in the SQL Editor of the existing multi-school OneLearn Supabase project. The file is about 296 KB. This replaces the older 10 MB installer and the 32-part method for this update. You do not need either older installer first. The original OneLearn multi-school database must already exist. Keep a backup of your current files and database.
+1. Extract each product ZIP. Upload all files inside to the matching website repository root. Each ZIP is flat with fewer than 100 files. Keep all three library JSON files.
+2. Run ONEHOME-UPDATE.sql in your EXISTING OneLearn multi-school Supabase project. It includes the previous compact installer; no older OneHome installer is needed. Repeat installation preserves records.
+3. Refresh all three sites. Use matching website files and SQL together.
+Keep SQL private: it contains answer keys. School URLs and public Supabase configuration are preserved. Nothing is deployed automatically.
 
-Every ZIP has files at its root, with no folders. Include all content-*.json and outfit-*.svg files. If GitHub limits how many files you can select in one upload, upload them in batches; keep them all at repository root. Do not upload the private SQL file to GitHub; it contains answer keys.
+IMPORTS: Connections > blank template or authorised Arbor CSV > Match columns > Preview > Import. Use Student Name, School Email, Classes, Year; Student ID is optional but recommended. Separate classes with commas (quote the CSV field), semicolons or |. Repeated emails combine classes. Class names are shared within each year, ignoring case and extra spaces. Choose the import year or use each row's year. Conflicting details stop the import. Memberships default to add; replacement is explicit. New classes require teacher assignment.
+MEMBERSHIPS: People & classes > select class > add, remove or move selected pupils. Choose multiple teachers. Clearing all teacher boxes restricts that class to administrators. Invite staff through School settings > School setup. Manually edited OneHome memberships persist through linked MIS refreshes.
+GRADUATION: Select actual Year 11 leavers, then type GRADUATE YEAR 11. Their OneHome access is disabled and their results, points and memberships are preserved. Restore explicitly if needed. Re-import and MIS sync cannot silently restore graduates.
+COMFORT: Browser-local font, reading width, letter spacing, optional celebrations (off by default) and active-study break reminders. Books retain text-size, page-colour, line-spacing and pause controls. These preferences do not guarantee headache prevention.
+BUDDIES: 24 free companions including Panda, Polar Bear, Dog, Cat, Cow and Highland Cow. Name, care and outfit ownership carry over. School disable controls still apply.
+BOOKS: Five additional full-length classics, taking the collection to 26. Existing page numbers and progress are preserved. App page counts differ from printed editions. Text-recall checkpoints are automatically prepared from passages; school staff should review suitability, historic language and themes. Sources are in BOOK-SOURCES.txt.
+ADVENT: Automatically available on UK server dates 1–25 December. Only today's door opens, once per pupil per year. Days 1–24 randomly award 5–25 Star or Power Points per pupil. Gifts never count towards homework targets. Door 25 awards a homework pass. Students select published homework and request teacher approval; approval applies only to that student's assignment. Declined passes remain available for another request. School settings can disable advent. The isolated demo follows the browser date; live decisions use server time only.
+Existing login-provider/SMTP settings remain necessary. Demo students are examples only. No real students are seeded.
 
-CONFIGURATION
-Your Supabase URL and publishable key are preserved. Check each config.js has the actual OneHome, OneMaths and OneReader HTTPS addresses. Same-origin repositories share the existing sign-in. Keep your previous Microsoft/Google/email provider and redirect setup. This update does not configure external provider credentials or SMTP, and does not change live Supabase automatically.
-
-ADMINISTRATORS
-- OneHome > School settings: enable/disable study buddies. Off hides buddies/outfits and server-blocks pet care, renaming, equipment and buddy hints; ordinary hints remain available.
-- OneReader > Add school book: upload a .txt file up to 600 KB, enter title/author/age and confirm sharing permission. Review/edit the generated questions and correct choices before publishing. Uploaded books stay in the school database, visible only to that school. PDF/EPUB imports are not included.
-- Teacher progress reports include the yearly review score/status. Existing permissions, school boundaries and lockdown checks remain in force.
-
-STUDY BUDDIES
-- Children can rename their buddy (up to 24 characters), buy outfits and equip/remove separate clothing pieces in My study buddy.
-- The shop has 42 rewards, including 19 illustrated clothing/accessory choices. Existing non-clothing decorations remain collectibles. SVG outfit images layer visibly over the fox; they are not just text labels.
-- Food costs 5 Power Points and water costs 5 Power Points. Each lasts 24 hours. Repeated clicks while already fed/watered do not charge again. Savings are not spent automatically. Homework progress keeps earned points even after spending.
-- A fed and watered buddy can rule out one wrong option in maths or reading check-ins. During reading, it also offers a page-reading strategy. It does not answer questions for the student. Normal hints remain free. No bonus hints are given in the initial assessment or annual review.
-
-READING
-- 21 full-length public-domain novels/collections, including the added Oliver Twist, Jane Eyre and Wuthering Heights (588, 645 and 402 reading pages respectively). Pages are this reader's text chunks, not a particular printed edition. Existing full-book page numbers are unchanged.
-- The previous 115 short readers/transition guides remain available via Include short reads. There are still 105 maths topics.
-- Main book text and question wording now live in static website JSON files; answer keys and student records remain private in Supabase. Public-domain built-in book texts are public assets. School-uploaded books stay school-scoped in the database.
-- The initial check has five original passages of 350+ words each and 50 distinct questions. It is a classroom check, not a validated reading-age test. Teachers can continue recording reading ages from external assessments. Completed historic checks are preserved. Incomplete older checks are archived and restart using the new questions.
-- The annual book review opens once per September–August school year after at least one book is completed. Up to ten questions are drawn from completed books. First answers are final for that annual review; it awards 2 Star Points per correct answer once. No completed books means no review yet. It is a review of existing book questions, not a new validated exam.
-- Gothic titles need school approval and Year 10/11 access. Teachers should review historical language and themes. Full source records are included in BOOK-SOURCES.txt.
-
-VALIDATION
-Local database and browser tests cover the new flows; no live database or deployment was changed. Try ?demo=1 for an isolated preview. The demo uses sample assessment questions; live pupils receive the 50-question bank from the matching installer and assets. Book text is escaped as plain text, never executed as HTML.
