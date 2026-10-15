@@ -8,6 +8,7 @@ window.ONELEARN_CONFIG = {
     "OneHome": "../OneHome/",
     "OneMaths": "../OneMaths/",
     "OneReader": "../OneReader/",
+    "OneStudy": "../OneStudy/",
     "OneSixth": "../OneSixth/"
   }
 };
