@@ -1,0 +1,26 @@
+OneHome family v11.1 COMPLETE website packages
+
+These complete folders restore the missing files that caused the loading issue.
+
+1. Back up your existing website repositories.
+2. Extract each ZIP on your computer.
+3. Upload ALL extracted contents into the matching GitHub repository:
+   OneHome -> OneHome; OneMaths -> OneMaths;
+   OneReader -> OneReader; OneStudy -> OneStudy.
+4. Keep index.html at the existing repository root, with no extra nested app
+   folder. Replace existing files when prompted.
+5. Upload extracted contents, not the ZIP. GitHub Pages does not unzip files.
+6. Wait for GitHub Pages publishing to finish, then refresh with Ctrl+F5.
+
+Include config.js, shared.mjs, shared-world.mjs and all JSON files.
+The supplied config.js restores your established project configuration.
+If you separately customised it, preserve your correct configuration settings.
+
+No new SQL is needed for the existing v10/v11 database.
+All book, topic and homework content files are preserved.
+Startup failures now offer Try again and Check website files.
+Study Buddy data no longer needs to load before startup.
+
+Tested locally: all four sign-in and demo pages, and error recovery for missing
+config.js, shared.mjs and rewards.json. These files have not been deployed
+automatically. Upload them to apply the fix.

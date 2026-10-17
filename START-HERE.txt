@@ -1,0 +1,80 @@
+ONEHOME V7 — 10 October 2026
+
+WHAT IS INCLUDED
+110 additional full public-domain books/plays/collections.
+117 new maths skills, grouped into 234 eight-question practice sets (1,872 questions).
+Total built-in catalogue: 989 maths sets and 557 reading resources, including 441 full texts.
+Original logo, with its pale background removed in the shipped SVG.
+No OneScience.
+
+INSTALL
+1. Extract OneHome.zip, OneMaths.zip and OneReader.zip.
+2. Upload ALL extracted files from each ZIP into its matching website repository root. Keep each site's own config.js from this matching package, or retain your existing config.js if you have changed its project or domain settings since v6.
+3. Run ONEHOME-V7-UPDATE.sql once in the existing OneLearn multi-school Supabase project. It includes previous OneHome updates. Keep this SQL private; it contains answer keys.
+4. Refresh the three sites.
+5. Administrator: open People & classes and assign teachers to their allowed classes. Teacher class access is now explicit: an unassigned class is not visible to a teacher. Administrators retain school-wide access.
+No live deployment, OAuth provider activation or real school account testing was performed.
+
+ADMINISTRATION
+Teacher → year → up to 10 allowed classes in that year. Other years are retained; no selected classes revokes access to that year.
+Student → year → 1–10 classes. Saving replaces their current year/class memberships; previous results and points remain.
+The advanced class tools and full roster are under a disclosure below the new controls.
+
+ARBOR / TEAMS / CSV
+This is an authorised CSV-file import, not a live Arbor API connection.
+Required columns: Student Name, Classes, Parent Email, Year.
+Example: Alex Taylor,"10A, 10B",parent@example.test,10
+Multiple class names go in a quoted cell. The same normalised class name in the same year creates one shared class; another year remains separate.
+Parent email is contact information, never a student login. Siblings sharing it remain separate.
+Optional columns: Student ID, School Email. Supply a stable school Student ID where possible. Without it, an ID is derived from name, parent email and year; changing those details can create a new record.
+After importing, use Export roster with IDs. Preserve those IDs for later changes. Identical identity rows are rejected for review, rather than silently merging students.
+Existing records with the same school email but a different ID are rejected for reconciliation. Use the existing full exported Student ID to update them.
+Private student codes download only for new pupils. School Email plus provider is still required for Google/Microsoft/email-code sign-in.
+
+TEACHERS
+Dashboard with allowed classes, student messages, first-attempt mistakes and question progress.
+Homework for one or multiple allowed classes. Maths can be scheduled for 1–12 weekly occurrences, preserving UK local clock times across daylight-saving changes.
+Private or school-shared homework templates.
+Individual deadline extensions, homework exemptions and private feedback.
+Reading-time guide: 10/20/30/40/50/60 minutes suggests 10/20/30/40/50/60 Star Points. Double-point mode doubles suggestions.
+This is an adjustable planning guide, not a measured reading speed or points awarded for time. Choose enough unfinished checkpoints.
+
+STUDENTS
+Today, Learn, Homework, Revise, My Progress and Messages.
+Continue unfinished learning, goals, personal milestones, grouped maths skills, methods and worked examples for the new skills.
+Typed numeric/fraction answers for the new maths questions. Review sessions do not award duplicate points.
+Suggested review intervals use first answers and recent practice; they are a simple recommendation system, not a validated mastery assessment. Earlier related skills may be suggested when a student is stuck.
+Original GCSE-style topic practice with an optional timer. It is not an official exam paper or grade prediction.
+Ordering, matching, graph and written-explanation warm-ups are self-study activities without points.
+Saved books, private notes/bookmarks, vocabulary/inference/evidence reflections, and original GCSE paragraph-planning tools.
+Reading reflections and written explanations are self-assessed, not AI-marked.
+The new book checkpoints are automatically prepared text-recall questions; the reflection tools support deeper reading.
+Students in Years 7–11 can now use independent maths practice.
+
+SCHOOL CONTENT
+Content options separates the built-in library from school books and maths.
+Administrators can upload a school book using the existing tool or create a maths topic with questions, four choices, correct choices and hints.
+School resources remain scoped to that school.
+
+MESSAGING
+Messages stay inside OneHome; no email notifications are sent.
+A student can message only a currently assigned teacher. A teacher can message only currently assigned students. Messages are text-only.
+Sending, including feedback messages, is paused on Sundays in Europe/London time. Existing messages remain readable. No automatic delayed sending occurs.
+Private reading notes are not exposed to teachers.
+
+BUDDIES AND SHOP
+190 curated names; random selections are saved, not regenerated each time.
+40 light-hearted jokes across 13 topic categories. Unrecognised topics use general jokes; this is a curated collection, not an open-ended AI chatbot.
+24 additional premium cosmetics at 250–1,800 Star or Power Points; 66 shop items total.
+Normal learning hints remain free.
+
+CONTENT AND COPYRIGHT
+Macbeth and A Christmas Carol full texts remain included.
+An Inspector Calls remains an original study guide: use the school's licensed play script.
+Source URLs and author information are in BOOK-SOURCES.txt. Suggested ages are editorial starting points; schools should review historical language and themes.
+The catalogue uses original English public-domain texts, not modern translations or illustrated editions.
+Demo answers remain deliberately illustrative. Live answers are checked privately by the database.
+
+VALIDATION
+See VALIDATION.txt for the local database, content and browser checks.
+

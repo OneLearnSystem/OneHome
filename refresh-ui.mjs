@@ -1,4 +1,4 @@
-import {esc,link} from './shared.mjs';
+import {esc,link} from './shared.mjs?v=11.1';
 export const uiIcon=(id)=>`<img class="ui-icon" src="ui-${id}.svg" alt="">`;
 export function brand(product='OneHome'){return `<span class="ui-brand"><span class="brand-symbol brand-${product.toLowerCase()}" aria-hidden="true"></span><span>One<b>${product.slice(3)}</b></span></span>`}
 export function shell({product,student,admin=false,person,school,view,nav,content,demoBar='',rail='side',settings='comfort'}){

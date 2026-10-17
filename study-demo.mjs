@@ -1,4 +1,4 @@
-const lessons=await fetch('demo-lessons.json').then(r=>r.json()),rewards=await fetch('rewards.json').then(r=>r.json());
+const lessons=await fetch('demo-lessons.json').then(r=>r.json()),rewards=await fetch('rewards.json?v=11.1').then(r=>r.json());
 const now=()=>new Date().toISOString(),key='onestudy-v10-demo';
 let d;try{d=JSON.parse(sessionStorage.getItem(key))}catch{}
 d||={courses:[],tasks:[],attempts:[],submissions:[],private:{}};
